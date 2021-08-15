@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,15 @@ Route::get('/', function () {
 ##############################################
 ####### CRUD de marcas
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\ProductoController;
+
 Route::get('/adminMarcas', [ MarcaController::class, 'index' ] );
 Route::get('/agregarMarca', [ MarcaController::class, 'create' ] );
 Route::post('/agregarMarca', [ MarcaController::class, 'store' ] );
+
+##############################################
+####### CRUD de categorías
+Route::get('/adminCategorias' ,[CategoriaController::class, 'index']);
+Route::get('/agregarCategoria' , [CategoriaController::class , 'create']);
+Route::post('agregarCategoria' , [CategoriaController::class , 'store']);
 
