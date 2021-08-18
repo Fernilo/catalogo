@@ -11,7 +11,16 @@
                 <div class="form-group">
                     <label for="catNombre">Nombre de la categoría</label>
                     <input type="text" name="catNombre"
-                           class="form-control" id="catNombre">
+                           class="form-control @error('catNombre') is-invalid @enderror" id="catNombre" value="{{old('catNombre')}}"> 
+                           {{-- 
+                            En el caso de la edición se puede mostras el dato guardado en bd por defecto en el value agregando un segundo paramétro al old
+                            <input type="text" name="catNombre"
+                           class="form-control @error('catNombre') is-invalid @enderror" id="catNombre" value="{{old('catNombre',$categoria->nombre)}}">       --}}
+                    @error('catNombre')
+                        <div class="alert alert-danger mt-2">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
                 <button class="btn btn-dark mr-3">Agregar categoría</button>
                 <a href="/adminMarcas" class="btn btn-outline-secondary">
@@ -20,7 +29,7 @@
             </form>
         </div>
 
-        @if( $errors->any() )
+        {{-- @if( $errors->any() )
             <div class="alert alert-danger col-8 mx-auto">
                 <ul>
                 @foreach( $errors->all() as $error )
@@ -28,7 +37,7 @@
                 @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
 
     @endsection
