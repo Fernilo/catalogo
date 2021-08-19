@@ -10,5 +10,6 @@ class Marca extends Model
     use HasFactory;
 
     //protected $table = 'marcas';
+    protected $primaryKey = 'idMarca';//le indico que la primary key tiene otro nombre (por defecto es id)
     public $timestamps = false;
 }

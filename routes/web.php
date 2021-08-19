@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,16 +21,25 @@ Route::get('/', function () {
 });
 ##############################################
 ####### CRUD de marcas
-use App\Http\Controllers\MarcaController;
-use App\Http\Controllers\ProductoController;
+
 
 Route::get('/adminMarcas', [ MarcaController::class, 'index' ] );
 Route::get('/agregarMarca', [ MarcaController::class, 'create' ] );
 Route::post('/agregarMarca', [ MarcaController::class, 'store' ] );
+Route::get('/modificarMarca/{id}',[MarcaController::class,'edit']);
+Route::put('/modificarMarca', [ MarcaController::class, 'update' ]);
+Route::get('/eliminarMarca/{id}', [ MarcaController::class, 'confirmarBaja' ]);
+route::delete('/eliminarMarca', [ MarcaController::class, 'destroy' ]);
+
+
 
 ##############################################
 ####### CRUD de categorías
 Route::get('/adminCategorias' ,[CategoriaController::class, 'index']);
 Route::get('/agregarCategoria' , [CategoriaController::class , 'create']);
 Route::post('agregarCategoria' , [CategoriaController::class , 'store']);
+
+##############################################
+####### CRUD de productos
+Route::get('/adminProductos' , [ProductoController::class , 'index']);
 
