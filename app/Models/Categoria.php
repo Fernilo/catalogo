@@ -11,5 +11,6 @@ class Categoria extends Model
 
     private $tale = 'idCategoria';
 
+    protected $primaryKey = 'idCategoria';
     public $timestamps = false;
 }

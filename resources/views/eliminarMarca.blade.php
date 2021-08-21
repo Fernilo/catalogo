@@ -11,8 +11,8 @@
                 {{ $Marca->mkNombre }}
             </span>
             <form action="/eliminarMarca" method="post">
-        @method('delete')
-        @csrf
+            @method('delete')
+            @csrf
                 <input type="hidden" name="mkNombre"
                        value="{{ $Marca->mkNombre }}">
                 <input type="hidden" name="idMarca"

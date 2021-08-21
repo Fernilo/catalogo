@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -81,7 +82,8 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Categoria = Categoria::find($id);
+        return view('modificarCategoria' , ['Categoria' => $Categoria]);
     }
 
     /**
@@ -91,9 +93,41 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $catNombre = $request->catNombre;
+
+        $this->validarForm($request);
+
+        $Categoria = Categoria::find($request->idCategoria);
+
+        $Categoria->catNombre = $catNombre;
+
+        $Categoria->save();
+
+        return redirect('adminCategorias')->with([
+            'mensaje' => 'La categoria: '.$catNombre. ' se editó con éxito'
+        ]);
+    }
+
+    public function confirmarBaja($id) 
+    {
+        $Categoria = Categoria::find($id);
+
+        if($this->productosCategoria($id)) {
+            return view('eliminarCategoria' , ['Categoria' => $Categoria]);
+        }
+
+        return redirect('adminCategorias')->with([
+            'mensaje' => 'No se puede eliminar porque tiene productos asignados'
+        ]);
+    }
+
+    private function productosCategoria($id)
+    {
+        $check = Producto::where('idCategoria' , $id)->count();
+
+        return $check;
     }
 
     /**

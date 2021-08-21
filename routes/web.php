@@ -37,7 +37,10 @@ route::delete('/eliminarMarca', [ MarcaController::class, 'destroy' ]);
 ####### CRUD de categorías
 Route::get('/adminCategorias' ,[CategoriaController::class, 'index']);
 Route::get('/agregarCategoria' , [CategoriaController::class , 'create']);
-Route::post('agregarCategoria' , [CategoriaController::class , 'store']);
+Route::post('/agregarCategoria' , [CategoriaController::class , 'store']);
+Route::get('/modificarCategoria/{id}' , [CategoriaController::class , 'edit']);
+Route::put('/modificarCategoria', [CategoriaController::class , 'update']);
+Route::get('/eliminarCategoria/{id}' , [CategoriaController::class , 'confirmarBaja']);
 
 ##############################################
 ####### CRUD de productos
