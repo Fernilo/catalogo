@@ -78,7 +78,12 @@
             campo.addEventListener('change', cambiarTexto );//Escuchamos el evento
             function cambiarTexto()
             {
-                caja.innerText = campo.value;//Escribe el texto en el HTML
+                caja.innerText = trimString(campo.value);//Escribe el texto en el HTML
+            }
+
+            function trimString(texto) 
+            {
+                return texto.substring(12);
             }
         </script>
 
