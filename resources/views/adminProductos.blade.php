@@ -40,12 +40,12 @@
                         <img src="/productos/{{ $producto->prdImagen }}" alt="" class="img-fluid">
                     </td>
                     <td>
-                        <a href="/modificarProducto" class="btn btn-outline-secondary">
+                        <a href="/modificarProducto/{{ $producto->idProducto }}" class="btn btn-outline-secondary">
                             Modificar
                         </a>
                     </td>
                     <td>
-                        <a href="/eliminarProducto" class="btn btn-outline-secondary">
+                        <a href="/eliminarProducto/{{ $producto->idProducto }}" class="btn btn-outline-secondary">
                             Eliminar
                         </a>
                     </td>
