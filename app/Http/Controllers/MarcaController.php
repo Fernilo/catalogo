@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
 use App\Models\Marca;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class MarcaController extends Controller
@@ -87,7 +87,7 @@ class MarcaController extends Controller
         //obtenemos datos de una marca
         $Marca = Marca::find($id);
         //retornamos vista con los datos
-        return view('modificarMarca', [ 'Marca' => $Marca ]);
+        return view('modificarMarca', [ 'Marca'=>$Marca ]);
     }
 
     /**
@@ -112,25 +112,29 @@ class MarcaController extends Controller
             ->with( [ 'mensaje'=>'Marca: '.$mkNombre.' modificada correctamente' ] );
     }
 
-    public function confirmarBaja($id) 
+    private function productoPorMarca($idMarca)
     {
-        $Marca = Marca::find($id);
-
-        //Si no tiene productos asignados
-        if($this->productoMarca($id)){
-            return view('eliminarMarca' , ['Marca' => $Marca]);
-        }
-
-        return redirect('adminMarcas')->with(['mensaje' => 'No se puede eliminar']);
-    }
-
-    public function productoMarca($idMarca)
-    {
-        //$check = Producto::where('idMarca' , $idMarca)->first();
-
-        //dd($check);exit;
+        //$check = Producto::where('idMarca', $idMarca)->first();
+        //$check = Producto::firstWhere('idMarca', $idMarca);
         $check = Producto::where('idMarca', $idMarca)->count();
         return $check;
+    }
+
+    public function confirmarBaja($id)
+    {
+        //obtenemos datos de una marca
+        $Marca = Marca::find($id);
+
+        //si NO HAY productos de esa marca
+        if( $this->productoPorMarca($id) == 0 ){
+            return view('/eliminarMarca', [ 'Marca'=>$Marca ]);
+        }
+        //redirección con mensaje que no se puede eliminar
+        return redirect('/adminMarcas')
+                    ->with([
+                            'mensaje'=>'No se puede eliminar la marca: '.$Marca->mkNombre.' ya que tiene productos asignados.',
+                            'warning'=>'warning'
+                           ]);
     }
 
     /**
@@ -142,6 +146,10 @@ class MarcaController extends Controller
     public function destroy(Request $request)
     {
         Marca::destroy($request->idMarca);
+        /*
+         * $Marca = Marca::find($request->idMarca);
+         * $Marca->delete();
+         */
 
         return redirect('/adminMarcas')
             ->with( [ 'mensaje'=>'Marca: '.$request->mkNombre.' eliminada correctamente' ] );

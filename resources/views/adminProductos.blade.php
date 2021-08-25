@@ -18,6 +18,7 @@
                     <th>Categoría</th>
                     <th>Precio</th>
                     <th>Presentación</th>
+                    <th>Stock</th>
                     <th>Imagen</th>
                     <th colspan="2">
                         <a href="/agregarProducto" class="btn btn-outline-secondary">
@@ -31,10 +32,13 @@
                 <tr>
                     <td>{{ $producto->prdNombre }}</td>
                     <td>{{ $producto->getMarca->mkNombre }}</td>
-                    <td>{{ $producto->idCategoria }}</td>
-                    <td>precio</td>
-                    <td>present</td>
-                    <td>imagen</td>
+                    <td>{{ $producto->getCategoria->catNombre }}</td>
+                    <td>${{ $producto->prdPrecio }}</td>
+                    <td>{{ $producto->prdPresentacion }}</td>
+                    <td>{{ $producto->prdStock }}</td>
+                    <td>
+                        <img src="/productos/{{ $producto->prdImagen }}" alt="" class="img-fluid">
+                    </td>
                     <td>
                         <a href="/modificarProducto" class="btn btn-outline-secondary">
                             Modificar

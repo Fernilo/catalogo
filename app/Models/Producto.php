@@ -17,8 +17,17 @@ class Producto extends Model
     {
         return $this->belongsTo(
             Marca::class,
-            'idMarca',
-            'idMarca'
+            'idMarca',//Clave Foranea
+            'idMarca'//Clave Primaria
+        );
+    }
+
+    public function getCategoria()
+    {
+        return $this->belongsTo(
+            Categoria::class,
+            'idCategoria',//Clave Foranea
+            'idCategoria'//Clave Primaria
         );
     }
 }

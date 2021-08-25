@@ -114,12 +114,13 @@ class CategoriaController extends Controller
     {
         $Categoria = Categoria::find($id);
 
-        if($this->productosCategoria($id)) {
+        if(!$this->productosCategoria($id)) {
             return view('eliminarCategoria' , ['Categoria' => $Categoria]);
         }
 
         return redirect('adminCategorias')->with([
-            'mensaje' => 'No se puede eliminar porque tiene productos asignados'
+            'mensaje' => 'No se puede eliminar porque tiene productos asignados',
+            'color' => true
         ]);
     }
 
@@ -136,8 +137,12 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Categoria::destroy($request->idCategoria);
+
+        return redirect('adminCategorias')->with([
+            'mensaje' => 'Categoria: '.$request->catNombre.' eliminada correctamente'
+        ]);
     }
 }
