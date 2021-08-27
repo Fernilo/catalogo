@@ -51,4 +51,4 @@ Route::post('/agregarProducto' , [ProductoController::class , 'store']);
 Route::get('/modificarProducto/{id}', [ProductoController::class,'edit']);
 Route::put('/modificarProducto' , [ProductoController::class , 'update']);
 Route::get('/eliminarProducto/{id}',[ProductoController::class,'confirmarBaja']);
-Route::delete('/eiminarProducto' , [ProductoController::class , 'destroy']);
+Route::delete('/eliminarProducto' , [ProductoController::class , 'destroy']);

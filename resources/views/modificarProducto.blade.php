@@ -56,7 +56,7 @@
                 <br>
                 Modificar Imagen ( opcional ): <br>
                 <div class="custom-file mt-1 mb-4">
-                    <input type="file" name="prdImagen"  class="custom-file-input" id="customFileLang" lang="es">
+                    <input type="file" name="prdImagen"  class="custom-file-input  @error('prdImagen') is-invalid @enderror" id="customFileLang" lang="es">
                     <label class="custom-file-label" for="customFileLang" data-browse="Buscar en disco">Seleccionar Archivo: </label>
                 </div>
 

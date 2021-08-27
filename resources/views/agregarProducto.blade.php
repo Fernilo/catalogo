@@ -12,7 +12,7 @@
                 Nombre: <br>
                 <input type="text" name="prdNombre"
                        value="{{ old('prdNombre') }}"
-                       class="form-control">
+                       class="form-control @error('prdNombre') is-invalid @enderror">
                 <br>
                 Precio: <br>
                 <div class="input-group mb-2">
@@ -21,7 +21,7 @@
                     </div>
                     <input type="number" name="prdPrecio"
                            value="{{ old('prdPrecio') }}"
-                           class="form-control" step="0.01">
+                           class="form-control @error('prdPrecio') is-invalid @enderror" step="0.01">
                 </div>
                 <br>
                 Marca: <br>

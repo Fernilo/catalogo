@@ -18,7 +18,7 @@ class ProductoController extends Controller
     {
         //obtenemos listado de productos
         $productos = Producto::with([ 'getMarca', 'getCategoria' ])
-                                        ->paginate(5);
+                                        ->paginate(3);
         return view('/adminProductos', [ 'productos'=>$productos ]);
     }
 
@@ -67,7 +67,7 @@ class ProductoController extends Controller
                 'prdStock.required'=>'Complete el campo Stock.',
                 'prdStock.integer'=>'Complete el campo Stock con un número entero.',
                 'prdStock.min'=>'Complete el campo Stock con un número positivo.',
-                'prdImagen.mimes'=>'Debe ser una imagen.',
+                'prdImagen.mimes'=>'Debe cargar una imagen.',
                 'prdImagen.max'=>'Debe ser una imagen de 2MB como máximo.'
             ]
         );
@@ -191,7 +191,7 @@ class ProductoController extends Controller
     {
         $Producto = Producto::with(['getMarca' , 'getCategoria'])->find($id);
 
-        return view('/eliminarProducto',['Producto'=>$Producto]);
+        return view('/eliminarProducto', ['Producto'=>$Producto]);
     }
 
     /**
@@ -203,5 +203,9 @@ class ProductoController extends Controller
     public function destroy(Request $request)
     {
         Producto::destroy($request->idProducto);
+
+        return redirect('adminProductos')->with(
+            ['mensaje' => 'Se eliminó: '.$request->prdNombre.' correctamene']
+        );
     }
 }
