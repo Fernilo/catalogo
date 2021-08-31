@@ -54,13 +54,16 @@ class MarcaController extends Controller
     {
         //capturamos dato
         $mkNombre = $request->mkNombre;
-        //validación
-        $this->validarForm($request);
-        //instanciación, asignación, guardar datos
-        $Marca = new Marca;
-        $Marca->mkNombre = $mkNombre;
-        $Marca->save();
+        // //validación
+        // $this->validarForm($request);
+        // //instanciación, asignación, guardar datos
+        // $Marca = new Marca;
+        // $Marca->mkNombre = $mkNombre;
+        // $Marca->save();
         //redireccion con mensaje ok
+        //dd($request->all());
+        $Marca = Marca::create($request->all());
+
         return redirect('/adminMarcas')
             ->with( [ 'mensaje'=>'Marca: '.$mkNombre.' agregada correctamente' ] );
     }
@@ -101,13 +104,14 @@ class MarcaController extends Controller
     {
         $mkNombre = $request->mkNombre;
         //validación
-        $this->validarForm($request);
-        //obtenemos datos de una marca
+        // $this->validarForm($request);
+        // //obtenemos datos de una marca
         $Marca = Marca::find($request->idMarca);
-        //asignación y gardar
-        $Marca->mkNombre = $mkNombre;
-        $Marca->save();
+        // //asignación y gardar
+        // $Marca->mkNombre = $mkNombre;
+        // $Marca->save();
         //redirección con mensaje ok
+        $Marca->update($request->all());
         return redirect('/adminMarcas')
             ->with( [ 'mensaje'=>'Marca: '.$mkNombre.' modificada correctamente' ] );
     }

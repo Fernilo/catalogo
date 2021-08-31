@@ -6,7 +6,7 @@
 
         <div class="row alert bg-light border-danger col-8 mx-auto p-2">
             <div class="col">
-                <img src="/productos/noDisponible.jpg" class="img-thumbnail">
+                <img src="/productos/{{$Producto->prdImagen}}" class="img-thumbnail">
             </div>
             <div class="col text-danger align-self-center">
             <form action="/eliminarProducto" method="post">
