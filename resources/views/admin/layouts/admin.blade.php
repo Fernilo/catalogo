@@ -2,8 +2,12 @@
 
 @section('title', 'Dashboard')
 
+@section('content_header')
+    @yield('contenido_header')
+@endsection
+
 @section('content')
-    <main class="container">
+    <main>
         @yield('contenido')
     </main>
 @stop
