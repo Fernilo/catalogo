@@ -6,7 +6,7 @@
     @section('contenido')
         <div class="card">
             <div class="card-body">
-                <form action="/agregarCategoria" method="post">
+                <form action="{{ route('comments.store') }}" method="post">
                 @csrf
                     <div class="form-group">
                         <label for="catNombre">Nombre de la categoría</label>
