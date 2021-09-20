@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
@@ -14,7 +15,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = Categoria::paginate(5);
+        return view('admin.Categorias.adminCategorias', ['categorias' => $categorias]);
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('admin.categorias.agregarCategoria');
+        return view('admin.Categorias.agregarCategoria');
     }
 
     /**
@@ -36,7 +38,31 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         $catNombre = $request->catNombre;
-        dd($catNombre);
+
+        $this->validarForm($request);
+
+        $categoria = new Categoria;
+
+        $categoria->catNombre = $catNombre;
+
+        $categoria->save();
+
+        return redirect()
+            ->route('admin.listarCategorias')
+            ->with(['mensaje' => 'Categoría ' .$catNombre. ' agregada correctamente.']);
+
+    }
+
+    private function validarForm(Request $request)
+    {
+        $request->validate(
+            ['catNombre' => 'required|min:2|max:50'],
+            [
+                'catNombre.required' => 'El campo no puede estar vacio',
+                'catNombre.min' => 'Debe tener al menos dos caracteres',
+                'catNombre.max' => 'Debe tener menos de 50 caracteres'
+            ]
+        );
     }
 
     /**
@@ -58,7 +84,9 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd($id);
+        $categoria = Categoria::get($id);
+        return view('admin.Categorias.modificarCategoria',['categoria' => $categoria]);
     }
 
     /**
