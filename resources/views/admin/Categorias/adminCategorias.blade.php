@@ -35,7 +35,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="/eliminarCategoria/{{ $categoria->idCategoria }}" class="btn btn-outline-secondary">
+                            <a href="{{ route('admin.confirmarBaja', ['id' => $categoria->idCategoria ]) }}" class="btn btn-outline-secondary">
                                 Eliminar
                             </a>
                         </td>
@@ -44,7 +44,9 @@
                 </tbody>
             </table>
         
-            {{ $categorias->links() }}
+            <div class="mt-4">
+                {{ $categorias->links() }}
+            </div>
         </div>
     </div>
     @endsection

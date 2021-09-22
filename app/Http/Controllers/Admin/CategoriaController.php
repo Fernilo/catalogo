@@ -15,7 +15,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::paginate(5);
+        $categorias = Categoria::paginate(8);
         return view('admin.Categorias.adminCategorias', ['categorias' => $categorias]);
     }
 
@@ -49,7 +49,7 @@ class CategoriaController extends Controller
 
         return redirect()
             ->route('admin.listarCategorias')
-            ->with(['mensaje' => 'Categoría ' .$catNombre. ' agregada correctamente.']);
+            ->with(['mensaje' => 'Categoría: ' .$catNombre. ' agregada correctamente.']);
 
     }
 
@@ -84,8 +84,7 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        dd($id);
-        $categoria = Categoria::get($id);
+        $categoria = Categoria::find($id);
         return view('admin.Categorias.modificarCategoria',['categoria' => $categoria]);
     }
 
@@ -96,9 +95,26 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $catNombre = $request->catNombre;
+
+        $this->validarForm($request);
+        $categoria = Categoria::find($request->idCategoria);
+        $categoria->catNombre = $catNombre;
+
+        $categoria->save();
+
+        return redirect()
+            ->route('admin.listarCategorias')
+            ->with(['mensaje' => 'Categoría: ' .$catNombre. ' modificada correctamente.']);
+    }
+
+    public function confirmarBaja($id) 
+    {
+        $categoria = Categoria::find($id);
+
+        return view('admin.Categorias.eliminarCategoria' , ['categoria' => $categoria]);
     }
 
     /**
