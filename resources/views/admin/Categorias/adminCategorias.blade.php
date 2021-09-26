@@ -19,7 +19,7 @@
                         <th>Categoría</th>
                         <th colspan="2">
                             <a href="{{ route('admin.agregarCategoria') }}" class="btn btn-outline-secondary">
-                                Agregar
+                                <i class="fas fa-plus"></i> Agregar
                             </a>
                         </th>
                     </tr>
@@ -31,12 +31,12 @@
                         <td>{{ $categoria->catNombre }}</td>
                         <td>
                             <a href="{{ route('admin.editCategoria', ['id' => $categoria->idCategoria ]) }}" class="btn btn-outline-secondary">
-                                Modificar
+                                <i class="fas fa-edit"></i> Modificar
                             </a>
                         </td>
                         <td>
                             <a href="{{ route('admin.confirmarBaja', ['id' => $categoria->idCategoria ]) }}" class="btn btn-outline-secondary">
-                                Eliminar
+                                <i class="fas fa-trash"></i> Eliminar
                             </a>
                         </td>
                     </tr>
@@ -44,7 +44,7 @@
                 </tbody>
             </table>
         
-            <div class="mt-4">
+            <div class="mt-4 d-flex justify-content-center">
                 {{ $categorias->links() }}
             </div>
         </div>

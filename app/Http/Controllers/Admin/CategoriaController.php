@@ -123,8 +123,12 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Categoria::destroy($request->idCategoria);
+
+        return redirect()
+            ->route('admin.listarCategorias')
+            ->with(['mensaje' => 'Categoria: ' .$request->catNombre. 'eliminada correctamente.']);
     }
 }

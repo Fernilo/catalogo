@@ -11,7 +11,7 @@
                     <div class="form-group">
                         <label for="catNombre">Nombre de la categoría</label>
                         <input type="text" name="catNombre"
-                            class="form-control @error('catNombre') is-invalid @enderror" id="catNombre" value="{{old('catNombre')}}"> 
+                            class="form-control @error('catNombre') is-invalid @enderror" placeholder="Ingrese el nombre de la categoría" id="catNombre" value="{{old('catNombre')}}"> 
                             {{-- 
                             En el caso de la edición se puede mostras el dato guardado en bd por defecto en el value agregando un segundo paramétro al old
                             <input type="text" name="catNombre"

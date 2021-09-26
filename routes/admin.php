@@ -11,4 +11,5 @@ Route::post('/agregarCategoria', [CategoriaController::class , 'store'])->name('
 Route::get('/modificarCategoria/{id}' , [CategoriaController::class , 'edit'])->name('admin.editCategoria');
 Route::put('/modificarCategoria' , [CategoriaController::class , 'update'])->name('admin.updateCategoria');
 Route::get('/eliminarCategoria/{id}' , [CategoriaController::class , 'confirmarBaja'])->name('admin.confirmarBaja');
+Route::delete('/eliminarCategoria' , [CategoriaController::class , 'destroy'])->name('admin.destroyCategoria');
 
