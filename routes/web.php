@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProductoController;
@@ -53,6 +54,8 @@ Route::put('/modificarProducto' , [ProductoController::class , 'update']);
 Route::get('/eliminarProducto/{id}',[ProductoController::class,'confirmarBaja']);
 Route::delete('/eliminarProducto' , [ProductoController::class , 'destroy']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('admin.index');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('admin.index');
+// })->name('admin');
+
+Route::get('/dashboard' , [HomeController::class , 'index']);
