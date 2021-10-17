@@ -48,10 +48,16 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             
-            Route::middleware('web')
+            Route::middleware('web','auth')
                 ->prefix('admin')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
+            
+            Route::middleware(['auth:sanctum', 'verified'])
+                ->get('/dashboard', function () {
+                    return view('admin.index');
+                })
+                ->name('admin');
 
             //si queremos que se loguee agregamos el middleware auth
             // Route::middleware('web','auth')

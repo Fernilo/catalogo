@@ -54,8 +54,4 @@ Route::put('/modificarProducto' , [ProductoController::class , 'update']);
 Route::get('/eliminarProducto/{id}',[ProductoController::class,'confirmarBaja']);
 Route::delete('/eliminarProducto' , [ProductoController::class , 'destroy']);
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('admin.index');
-// })->name('admin');
-
-Route::get('/dashboard' , [HomeController::class , 'index']);
+// Route::get('/dashboard' , [HomeController::class , 'index']);
