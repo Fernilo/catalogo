@@ -276,6 +276,20 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Productos',
+            'icon'    => 'fas fa-shopping-cart',
+            'submenu' => [
+                [
+                    'text' => 'listado',
+                    'route'  => 'admin.listarProductos',
+                ],
+                [
+                    'text' => 'agregar',
+                    'route'  => 'admin.agregarProductos',
+                ],
+            ],
+        ],
         ['header' => 'labels'],
         [
             'text'       => 'important',
