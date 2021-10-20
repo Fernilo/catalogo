@@ -17,3 +17,4 @@ Route::delete('/eliminarCategoria' , [CategoriaController::class , 'destroy'])->
 
 Route::get('/listarProductos' , [ProductoController::class , 'index'])->name('admin.listarProductos');
 Route::get('/agregarProducto' , [ProductoController::class , 'create'])->name('admin.agregarProductos');
+Route::post('/agregarProducto' , [ProductoController::class , 'store'])->name('admin.storeProductos');

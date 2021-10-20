@@ -24,7 +24,7 @@
                         <th>Stock</th>
                         <th>Imagen</th>
                         <th colspan="2">
-                            <a href="/agregarProducto" class="btn btn-outline-secondary">
+                            <a href="{{ route('admin.agregarProductos') }}" class="btn btn-outline-secondary">
                                 Agregar
                             </a>
                         </th>
