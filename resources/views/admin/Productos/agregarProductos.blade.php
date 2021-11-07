@@ -41,12 +41,12 @@
                 </select>
                 <br>
                 Presentacion: <br>
-                <textarea name="prdPresentacion" class="form-control">{{ old('prdPresentacion') }}</textarea>
+                <textarea name="prdPresentacion" class="form-control  @error('prdPresentacion') is-invalid @enderror">{{ old('prdPresentacion') }}</textarea>
                 <br>
                 Stock: <br>
                 <input type="number" name="prdStock"
                         value="{{ old('prdStock') }}"
-                        class="form-control" min="0">
+                        class="form-control  @error('prdStock') is-invalid @enderror" min="0">
                 <br>
                 Imagen: <br>
                 <div class="custom-file mt-1 mb-4">

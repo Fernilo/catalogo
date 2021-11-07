@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3f247bd43256e312cdce1c5d7faf886",
+    "content-hash": "93253dad6e81388efe48360f51d153f8",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1138,16 +1138,16 @@
         },
         {
             "name": "jeroennoten/laravel-adminlte",
-            "version": "v3.7.0",
+            "version": "v3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeroennoten/Laravel-AdminLTE.git",
-                "reference": "81558083c2a99c091e32f11dd0ddbc1e74918ff2"
+                "reference": "4edb26ab39a5f61b83e977d7d90b0b1fdb577dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/81558083c2a99c091e32f11dd0ddbc1e74918ff2",
-                "reference": "81558083c2a99c091e32f11dd0ddbc1e74918ff2",
+                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/4edb26ab39a5f61b83e977d7d90b0b1fdb577dca",
+                "reference": "4edb26ab39a5f61b83e977d7d90b0b1fdb577dca",
                 "shasum": ""
             },
             "require": {
@@ -1189,7 +1189,11 @@
                 "administrator",
                 "laravel"
             ],
-            "time": "2021-08-20T13:26:30+00:00"
+            "support": {
+                "issues": "https://github.com/jeroennoten/Laravel-AdminLTE/issues",
+                "source": "https://github.com/jeroennoten/Laravel-AdminLTE/tree/v3.7.1"
+            },
+            "time": "2021-10-19T14:09:09+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -1420,16 +1424,16 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v2.4.0",
+            "version": "v2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "69a4bb5523f91214d182315438deb66190317382"
+                "reference": "24d90e998a97636871d1d0f6a2f32cc8f954666d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/69a4bb5523f91214d182315438deb66190317382",
-                "reference": "69a4bb5523f91214d182315438deb66190317382",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/24d90e998a97636871d1d0f6a2f32cc8f954666d",
+                "reference": "24d90e998a97636871d1d0f6a2f32cc8f954666d",
                 "shasum": ""
             },
             "require": {
@@ -1478,7 +1482,11 @@
                 "laravel",
                 "tailwind"
             ],
-            "time": "2021-09-14T16:11:51+00:00"
+            "support": {
+                "issues": "https://github.com/laravel/jetstream/issues",
+                "source": "https://github.com/laravel/jetstream"
+            },
+            "time": "2021-11-02T16:27:07+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1953,16 +1961,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.6.7",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "7e8ded3cc496858b0a35c1c9355e5af79985bd0c"
+                "reference": "991e5bd8a48e450d23cd55336964f916e92a6464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/7e8ded3cc496858b0a35c1c9355e5af79985bd0c",
-                "reference": "7e8ded3cc496858b0a35c1c9355e5af79985bd0c",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/991e5bd8a48e450d23cd55336964f916e92a6464",
+                "reference": "991e5bd8a48e450d23cd55336964f916e92a6464",
                 "shasum": ""
             },
             "require": {
@@ -2011,13 +2019,17 @@
                 }
             ],
             "description": "A front-end framework for Laravel.",
+            "support": {
+                "issues": "https://github.com/livewire/livewire/issues",
+                "source": "https://github.com/livewire/livewire/tree/v2.7.2"
+            },
             "funding": [
                 {
                     "url": "https://github.com/calebporzio",
                     "type": "github"
                 }
             ],
-            "time": "2021-09-25T22:50:47+00:00"
+            "time": "2021-10-20T02:27:35+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -6606,6 +6618,70 @@
             "time": "2020-11-13T09:40:50+00:00"
         },
         {
+            "name": "nascent-africa/jetstrap",
+            "version": "v2.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nascent-africa/jetstrap.git",
+                "reference": "825bc9366ff40839dccfd89afc7a9568020621c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nascent-africa/jetstrap/zipball/825bc9366ff40839dccfd89afc7a9568020621c5",
+                "reference": "825bc9366ff40839dccfd89afc7a9568020621c5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "inertiajs/inertia-laravel": "^0.3",
+                "laravel/breeze": "^1.1",
+                "laravel/jetstream": "^2.3",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NascentAfrica\\Jetstrap\\JetstrapServiceProvider"
+                    ],
+                    "aliases": {
+                        "Jetstrap": "NascentAfrica\\Jetstrap\\JetstrapFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NascentAfrica\\Jetstrap\\": "src/NascentAfrica/Jetstrap/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anitche Chisom",
+                    "email": "anitchec.dev@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel 8 package to easily switch TailwindCSS resources generated by Laravel Jetstream to Bootstrap 4 or 5.",
+            "keywords": [
+                "bootstrap",
+                "jetstream",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/nascent-africa/jetstrap/issues",
+                "source": "https://github.com/nascent-africa/jetstrap"
+            },
+            "time": "2021-10-26T14:43:41+00:00"
+        },
+        {
             "name": "nunomaduro/collision",
             "version": "v5.8.0",
             "source": {
@@ -8474,5 +8550,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

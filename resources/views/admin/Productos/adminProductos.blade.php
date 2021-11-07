@@ -44,7 +44,7 @@
                             <img src="/productos/{{ $producto->prdImagen }}" alt="" class="img-fluid" width="80">
                         </td>
                         <td>
-                            <a href="/modificarProducto/{{ $producto->idProducto }}" class="btn btn-outline-secondary">
+                            <a href="{{ route('admin.editProducto', ['id' => $producto->idProducto ]) }}" class="btn btn-outline-secondary">
                                 Modificar
                             </a>
                         </td>

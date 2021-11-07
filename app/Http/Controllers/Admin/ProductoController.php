@@ -43,6 +43,7 @@ class ProductoController extends Controller
     {
         //validamos
         $this->validarForm($request);
+
         //subir imagen *
         $prdImagen = $this->subirImagen($request);
         //instanciamos, asignamos
@@ -57,8 +58,8 @@ class ProductoController extends Controller
         //guardamos
         $Producto->save();
 
-        return redirect('/adminProductos')
-            ->route('listarProductos')
+        return redirect()
+            ->route('admin.listarProductos')
             ->with( [ 'mensaje'=>'Producto: '.$request->prdNombre.' agregado correctamente.' ] );
     }
 
@@ -137,7 +138,13 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+
+        $marcas = Marca::all();
+
+        $categorias = Categoria::all();
+
+        return view('admin.Productos.editarProductos', ['producto' => $producto,'marcas' => $marcas , 'categorias' => $categorias]);
     }
 
     /**
@@ -147,9 +154,28 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //validación
+        $this->validarForm($request);
+        //subir imagen *
+        $prdImagen = $this->subirImagen($request);
+        //obtenemos Producto por su id
+        $Producto = Producto::find( $request->idProducto );
+        //asignamos
+        $Producto->prdNombre = $request->prdNombre;
+        $Producto->prdPrecio = $request->prdPrecio;
+        $Producto->idMarca = $request->idMarca;
+        $Producto->idCategoria = $request->idCategoria;
+        $Producto->prdPresentacion = $request->prdPresentacion;
+        $Producto->prdStock = $request->prdStock;
+        $Producto->prdImagen = $prdImagen;
+        //guardamos
+        $Producto->save();
+        //redirección + mensaje ok
+        return redirect()
+            ->route('admin.listarProductos')
+            ->with( [ 'mensaje'=>'Producto: '.$request->prdNombre.' modificado correctamente.' ] );
     }
 
     /**

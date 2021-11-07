@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label for="catNombre">Nombre de la categoría</label>
                     <input type="text" name="catNombre"
-                        class="form-control @error('catNombre') is-invalid @enderror" placeholder="Ingrese el nombre de la categoría" value="{{ $categoria->catNombre }}" id="catNombre" value="{{old('catNombre')}}"> 
+                        class="form-control @error('catNombre') is-invalid @enderror" placeholder="Ingrese el nombre de la categoría" value="{{ $categoria->catNombre }}" id="catNombre"> 
                         <input type="hidden" name="idCategoria"
                             value="{{ $categoria->idCategoria }}">
                         {{-- 
