@@ -30,4 +30,11 @@ class Producto extends Model
             'idCategoria'//Clave Primaria
         );
     }
+  
+  
+    public $appends = [
+        'categoria'
+    ]; //Agrega campos virtuales , relaciones al json del modelo 
+
+    protected $touches = ['blog']; // actualiza campos timestamp de la relación indicada
 }
