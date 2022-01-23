@@ -49,7 +49,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="/eliminarProducto/{{ $producto->idProducto }}" class="btn btn-outline-secondary">
+                            <a href="{{ route('admin.confirmarBajaProducto', ['id' => $producto->idProducto ]) }}" class="btn btn-outline-secondary">
                                 Eliminar
                             </a>
                         </td>

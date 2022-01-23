@@ -6,10 +6,10 @@
     @section('contenido')
     <div class="card">
         <div class="card-body">
-    
             <form action="{{ route('admin.updateProducto') }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
+                <input type="hidden" name="idProducto" value="{{ $producto->idProducto }}">
                 Nombre: <br>
                 <input type="text" name="prdNombre"
                         value="{{ $producto->prdNombre }}"

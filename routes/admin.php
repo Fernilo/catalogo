@@ -20,4 +20,6 @@ Route::get('/agregarProducto' , [ProductoController::class , 'create'])->name('a
 Route::post('/agregarProducto' , [ProductoController::class , 'store'])->name('admin.storeProductos');
 Route::get('/modificarProducto/{id}' , [ProductoController::class , 'edit'])->name('admin.editProducto');
 Route::put('/modificarProducto' , [ProductoController::class , 'update'])->name('admin.updateProducto');
+Route::get('/eliminarProducto/{id}' , [ProductoController::class , 'confirmarBaja'])->name('admin.confirmarBajaProducto');
+Route::delete('/eliminarProducto' , [ProductoController::class , 'destroy'])->name('admin.destroyProducto');
 

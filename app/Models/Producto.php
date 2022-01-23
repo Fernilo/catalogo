@@ -32,9 +32,9 @@ class Producto extends Model
     }
   
   
-    public $appends = [
-        'categoria'
-    ]; //Agrega campos virtuales , relaciones al json del modelo 
+    //public $appends = [
+        //'categoria'
+    //]; //Agrega campos virtuales , relaciones al json del modelo 
 
-    protected $touches = ['blog']; // actualiza campos timestamp de la relación indicada
+    //protected $touches = ['blog']; // actualiza campos timestamp de la relación indicada
 }
